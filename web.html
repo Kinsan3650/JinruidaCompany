@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>綦江精锐达重型齿轮有限公司</title>
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        // Tailwind 配置
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            }
+            .carousel-item {
+                display: none;
+                animation: fadeIn 0.8s ease-in-out;
+            }
+            .carousel-item.active {
+                display: block;
+            }
+            .carousel-indicator {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: rgba(255,255,255,0.5);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .carousel-indicator.active {
+                background-color: white;
+                transform: scale(1.2);
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .nav-scrolled {
+                @apply shadow-md bg-white/95;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-white">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- 公司标志 -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img src="images/logo.png" alt="綦江精锐达重型齿轮有限公司logo" class="h-20 w-auto">
+                        <span class="ml-3 text-xl font-bold text-black lang-zh">精锐达重型齿轮</span>
+                        <span class="ml-3 text-xl font-bold text-black lang-en hidden">Jingruida Heavy Gear</span>
+                    </a>
+                </div>
+
+                
+                <!-- 导航链接 - 桌面版 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-dark hover:text-primary transition-colors lang-zh">关于我们</a>
+                    <a href="#about" class="text-dark hover:text-primary transition-colors lang-en hidden">About</a>
+                    <a href="#company-gallery" class="text-dark hover:text-primary transition-colors lang-zh">公司展示</a>
+                    <a href="#company-gallery" class="text-dark hover:text-primary transition-colors lang-en hidden">Company Gallery</a>
+                    <a href="#products" class="text-dark hover:text-primary transition-colors lang-zh">产品展示</a>
+                    <a href="#products" class="text-dark hover:text-primary transition-colors lang-en hidden">Products</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors lang-zh">联系我们</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors lang-en hidden">Contact</a>
+                </nav>
+                
+                <!-- 语言切换按钮 -->
+                <div class="flex items-center">
+                    <button id="langToggle" class="px-3 py-1.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-colors text-sm">
+                        <span class="lang-zh">EN</span>
+                        <span class="lang-en hidden">中文</span>
+                    </button>
+                    
+                    <!-- 移动端菜单按钮 -->
+                    <button id="menuToggle" class="ml-4 md:hidden text-dark hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#about" class="block py-2 text-dark hover:text-primary transition-colors lang-zh">关于我们</a>
+                <a href="#about" class="block py-2 text-dark hover:text-primary transition-colors lang-en hidden">About</a>
+                <a href="#company-gallery" class="block py-2 text-dark hover:text-primary transition-colors lang-zh">公司展示</a>
+                <a href="#company-gallery" class="block py-2 text-dark hover:text-primary transition-colors lang-en hidden">Company Gallery</a>
+                <a href="#products" class="block py-2 text-dark hover:text-primary transition-colors lang-zh">产品展示</a>
+                <a href="#products" class="block py-2 text-dark hover:text-primary transition-colors lang-en hidden">Products</a>
+                <a href="#contact" class="block py-2 text-dark hover:text-primary transition-colors lang-zh">联系我们</a>
+                <a href="#contact" class="block py-2 text-dark hover:text-primary transition-colors lang-en hidden">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="pt-24 md:pt-32 pb-16 md:pb-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-dark leading-tight mb-4">
+                        <span class="lang-zh">綦江精锐达重型齿轮有限公司</span>
+                        <span class="lang-en hidden">Qijiang Jingruida Heavy Gear Co., Ltd.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-xl">
+                        <span class="lang-zh">专业生产汽车、摩托车、叉车齿轮加工零部件的高新技术企业</span>
+                        <span class="lang-en hidden">Professional manufacturer of gears for automobiles, motorcycles, and forklifts</span>
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#about" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            <span class="lang-zh">了解更多</span>
+                            <span class="lang-en hidden">Learn More</span>
+                        </a>
+                        <a href="#contact" class="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/5 transition-all">
+                            <span class="lang-zh">联系我们</span>
+                            <span class="lang-en hidden">Contact Us</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/01_3.jpg" alt="公司大门" class="rounded-xl shadow-xl w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司介绍 -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">
+                    <span class="lang-zh">关于我们</span>
+                    <span class="lang-en hidden">About Us</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-light rounded-2xl p-6 md:p-10 shadow-sm">
+                <!-- Paragraph 1 -->
+                <p class="mb-6 text-gray-700 lang-zh">綦江精锐达重型齿轮有限公司创建于1988年，公司坐落于重庆市綦江区桥河工业园区西齿大道3号，紧临渝黔高速公路古剑山出口，距重庆主城区60余公里，交通便捷。公司占地面积68亩，配备各类专业先进生产设备130余台（套），员工100余人，其中工程技术人员10人，是一家专业生产、销售汽车、摩托车、叉车齿轮加工零部件的企业。</p>
+                <p class="mb-6 text-gray-700 lang-en hidden">Qijiang Jingruida Heavy Gear Co., Ltd., founded in 1988, is located at No.3, West Gear Avenue, Qiaohe Industrial Park, Qijiang District, Chongqing. Close to the Gujian Mountain exit of the Chongqing–Guizhou Expressway, it is about 60 kilometers from Chongqing’s main urban area with convenient transportation. Jingruida covers an area of 68 acres, equipped with over 130 pieces of advanced professional production equipment and more than 100 employees, including 10 engineering and technical staff. The company is a professional component manufacturer producing and selling gears for automobiles, motorcycles, and forklifts.</p>
+
+                <!-- Paragraph 2 -->
+                <p class="mb-6 text-gray-700 lang-zh">公司一直以来十分重视技术创新，成立重庆市中小企业研发中心一个，历年来多次获得国家知识产权局颁发专利证书，拥有8项实用新型专利；并于2018年被重庆市科技局评为“高新技术企业”，2019年被评为“专精特新”企业。</p>
+                <p class="mb-6 text-gray-700 lang-en hidden">Jingruida has always attached great importance to technological innovation and has established a research and development center for small and medium-sized enterprises in Chongqing. Over the years, the company has obtained professional certificates issued by the China National Intellectual Property Administration many times, with 8 utility model patents. In 2018, it was rated a “high‑tech enterprise” by the Chongqing Science and Technology Bureau, and in 2019 it was rated a “specialized, refined, and innovative enterprise.”</p>
+
+                <!-- Paragraph 3 -->
+                <p class="mb-6 text-gray-700 lang-zh">近年来，公司主要为重汽(济南)桥箱有限公司配套轮边齿轮，以及各类轴套、齿套、主动和从动齿轮等产品；为西安卓博液压工程有限公司生产特种车辆齿轮；为浙江中柴机器股份有限公司生产叉车齿轮；为綦江齿轮传动有限公司生产客车及货车变速箱齿轮。多次获得国内知名主机厂优秀供应商称号。</p>
+                <p class="mb-6 text-gray-700 lang-en hidden">In recent years, Jingruida mainly produces wheel‑side bridge gears as well as various shift sleeves, driving and driven gears and other products for Heavy Duty Truck (Jinan) Bridge Box Co., Ltd. It also produces special‑vehicle gears for Xi’an Zhuoshi Hydraulic Engineering Co., Ltd., forklift gears for Zhejiang Zhongchai Machinery Co., Ltd., and passenger and freight car gearbox gears for Qijiang Gear Transmission Co., Ltd. Jingruida has been awarded the title of “domestically well‑known and excellent component supplier of OEMs” multiple times.</p>
+
+                <!-- Paragraph 4 -->
+                <p class="text-gray-700 lang-zh">公司视产品质量为企业生命，顺利通过IATF16949质量第三方认证；在此基础上继续完善生产、质量管理体系。我公司以良好的产品质量和服务赢得了各个主机厂客户的信任，成为他们的战略伙伴企业和定点配套企业。</p>
+                <p class="text-gray-700 lang-en hidden">We regard product quality as our lifeline and have successfully passed the third‑party certification of the IATF16949 quality system. On this basis, we continue to improve our production and quality management systems. With excellent product quality and service, we have won the trust of customers from various OEMs and become their strategic partner and designated supporting enterprise.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司展示图片轮播 -->
+    <section id="company-gallery" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">
+                    <span class="lang-zh">公司展示</span>
+                    <span class="lang-en hidden">Company Gallery</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="relative max-w-5xl mx-auto">
+                <!-- 轮播容器 -->
+                <div id="companyCarousel" class="rounded-2xl overflow-hidden shadow-xl">
+                    <div class="carousel-item active">
+                        <img src="images/01_1.jpg" alt="公司厂区外观" class="w-full h-[600px] object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/01_4.jpg" alt="生产车间" class="w-full h-[600px] object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/02_2.jpg" alt="先进设备" class="w-full h-[600px] object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/02_3.jpg" alt="研发中心" class="w-full h-[600px] object-cover">
+                    </div>
+                </div>
+                
+                <!-- 轮播控制按钮 -->
+                <button class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 bg-white/70 backdrop-blur-sm rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors" id="companyPrev">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 bg-white/70 backdrop-blur-sm rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors" id="companyNext">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+                
+                <!-- 轮播指示器 -->
+                <div class="flex justify-center space-x-2 mt-6" id="companyIndicators">
+                    <div class="carousel-indicator active" data-index="0"></div>
+                    <div class="carousel-indicator" data-index="1"></div>
+                    <div class="carousel-indicator" data-index="2"></div>
+                    <div class="carousel-indicator" data-index="3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示图片轮播 -->
+    <section id="products" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">
+                    <span class="lang-zh">产品展示</span>
+                    <span class="lang-en hidden">Our Products</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="relative max-w-5xl mx-auto">
+                <!-- 轮播容器 -->
+                <div id="productCarousel" class="rounded-2xl overflow-hidden shadow-xl">
+                    <div class="carousel-item active">
+                        <img src="images/03_01.jpg" alt="汽车齿轮产品" class="w-full h-[600px] object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/03_02.jpg" alt="摩托车齿轮" class="w-full h-[600px] object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/03_03.jpg" alt="叉车齿轮组件" class="w-full h-[600px] object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/03_22.jpg" alt="变速箱齿轮" class="w-full h-[600px] object-cover">
+                    </div>
+                </div>
+                
+                <!-- 轮播控制按钮 -->
+                <button class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 bg-white/70 backdrop-blur-sm rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors" id="productPrev">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 bg-white/70 backdrop-blur-sm rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors" id="productNext">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+                
+                <!-- 轮播指示器 -->
+                <div class="flex justify-center space-x-2 mt-6" id="productIndicators">
+                    <div class="carousel-indicator active" data-index="0"></div>
+                    <div class="carousel-indicator" data-index="1"></div>
+                    <div class="carousel-indicator" data-index="2"></div>
+                    <div class="carousel-indicator" data-index="3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系信息 -->
+    <section id="contact" class="py-16 md:py-24 bg-dark text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">
+                    <span class="lang-zh">联系我们</span>
+                    <span class="lang-en hidden">Contact Us</span>
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-dark-800 bg-opacity-50 p-8 rounded-xl text-center hover:bg-primary/10 transition-colors">
+                    <div class="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-map-marker text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 lang-zh">公司地址</h3>
+                    <h3 class="text-xl font-semibold mb-4 lang-en hidden">Address</h3>
+                    <p class="text-gray-300 lang-zh">重庆市綦江区桥河工业园区西齿轮大道3号</p>
+                    <p class="text-gray-300 lang-en hidden">No.3, West Gear Avenue, Qiaohe Industrial Park, Qijiang District, Chongqing</p>
+                </div>
+                
+                <div class="bg-dark-800 bg-opacity-50 p-8 rounded-xl text-center hover:bg-primary/10 transition-colors">
+                    <div class="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-envelope text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 lang-zh">联系邮箱</h3>
+                    <h3 class="text-xl font-semibold mb-4 lang-en hidden">Email</h3>
+                    <p class="text-gray-300">41093332@qq.com</p>
+                </div>
+                
+                <div class="bg-dark-800 bg-opacity-50 p-8 rounded-xl text-center hover:bg-primary/10 transition-colors">
+                    <div class="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-phone text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 lang-zh">联系电话</h3>
+                    <h3 class="text-xl font-semibold mb-4 lang-en hidden">Phone</h3>
+                    <p class="text-gray-300">+86 13808317926</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark-900 py-8 text-gray-400 text-center">
+        <div class="container mx-auto px-4">
+            <p class="lang-zh">© 2025 綦江精锐达重型齿轮有限公司 版权所有</p>
+            <p class="lang-en hidden">© 2025 Qijiang Jingruida Heavy Gear Co., Ltd. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const zhElements = document.querySelectorAll('.lang-zh');
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            zhElements.forEach(el => {
+                el.classList.toggle('hidden');
+            });
+            
+            enElements.forEach(el => {
+                el.classList.toggle('hidden');
+            });
+        });
+        
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('nav-scrolled');
+            } else {
+                header.classList.remove('nav-scrolled');
+            }
+        });
+        
+        // 轮播功能实现
+        function initCarousel(carouselId, prevBtnId, nextBtnId, indicatorsId, interval = 5000) {
+            const carousel = document.getElementById(carouselId);
+            const items = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+            const indicators = document.getElementById(indicatorsId).querySelectorAll('.carousel-indicator');
+            let currentIndex = 0;
+            let timer;
+            
+            // 显示指定索引的轮播项
+            function showItem(index) {
+                // 隐藏所有项
+                items.forEach(item => item.classList.remove('active'));
+                indicators.forEach(ind => ind.classList.remove('active'));
+                
+                // 显示当前项
+                items[index].classList.add('active');
+                indicators[index].classList.add('active');
+                currentIndex = index;
+            }
+            
+            // 下一项
+            function nextItem() {
+                let index = currentIndex + 1;
+                if (index >= items.length) index = 0;
+                showItem(index);
+            }
+            
+            // 上一项
+            function prevItem() {
+                let index = currentIndex - 1;
+                if (index < 0) index = items.length - 1;
+                showItem(index);
+            }
+            
+            // 自动轮播
+            function startTimer() {
+                timer = setInterval(nextItem, interval);
+            }
+            
+            // 事件监听
+            nextBtn.addEventListener('click', () => {
+                clearInterval(timer);
+                nextItem();
+                startTimer();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                clearInterval(timer);
+                prevItem();
+                startTimer();
+            });
+            
+            // 指示器点击事件
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    clearInterval(timer);
+                    showItem(index);
+                    startTimer();
+                });
+            });
+            
+            // 鼠标悬停暂停轮播
+            carousel.addEventListener('mouseenter', () => clearInterval(timer));
+            carousel.addEventListener('mouseleave', startTimer);
+            
+            // 启动自动轮播
+            startTimer();
+        }
+        
+        // 初始化轮播
+        document.addEventListener('DOMContentLoaded', function() {
+            initCarousel('companyCarousel', 'companyPrev', 'companyNext', 'companyIndicators');
+            initCarousel('productCarousel', 'productPrev', 'productNext', 'productIndicators');
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // 关闭移动菜单（如果打开）
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
